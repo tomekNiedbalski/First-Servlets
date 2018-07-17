@@ -1,0 +1,28 @@
+input {
+    border-radius: 5px;
+}
+
+textarea {
+    border-radius: 5px;
+}
+
+.main_menu {
+    display: flex;
+
+}
+
+.main_menu a {
+    padding: 10px 10px;
+    text-decoration: none;
+
+}
+
+.main_menu a:link{
+    background-color: darkgray;
+    border-radius: 5px;
+}
+
+.main_menu a:hover {
+    background-color: antiquewhite;
+    border-radius: 5px;
+}
