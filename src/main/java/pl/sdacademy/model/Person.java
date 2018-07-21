@@ -44,6 +44,26 @@ public class Person {
         return sex;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setBornYear(int bornYear) {
+        this.bornYear = bornYear;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setSex(Sex sex) {
+        this.sex = sex;
+    }
+
     public List<Person> createPersonList(){
         List<Person> list = new ArrayList<>();
         list.add(new Person("Zbigniew", "Kossowski", 1986,853159753, Sex.MALE));

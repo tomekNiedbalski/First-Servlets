@@ -19,8 +19,5 @@
 <p><i>Your message:</i></p>
 ${requestScope.message}
 
-
-
-
 </body>
 </html>
