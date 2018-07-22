@@ -13,15 +13,19 @@
 
 <table border="1">
     <tr>
-        <th>Name</th><th>Last name</th><th>Born year</th><th>Phone</th><th>Sex</th>
+        <th>Name</th>
+        <th>Last name</th>
+        <th>Born year</th>
+        <th>Phone</th>
+        <th>Sex</th>
     </tr>
-    <c:forEach items="${requestScope.persons}" var="person">
+    <c:forEach items="${requestScope.persons}" var="museum">
         <tr>
-            <td>${person.getName()}</td>
-            <td>${person.getLastName()}</td>
-            <td>${person.getBornYear()}</td>
-            <td>${person.getPhoneNumber()}</td>
-            <td>${person.getSex().getSymbol()}</td>
+            <td>${museum.getName()}</td>
+            <td>${museum.getLastName()}</td>
+            <td>${museum.getBornYear()}</td>
+            <td>${museum.getPhoneNumber()}</td>
+            <td>${museum.getSex().getSymbol()}</td>
         </tr>
     </c:forEach>
 </table>

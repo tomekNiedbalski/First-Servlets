@@ -23,13 +23,13 @@ Our people list has: ${person_list.size()} person.<br>
         <th>Phone</th>
         <th>Sex</th>
     </tr>
-    <c:forEach items="${person_list}" var="person">
+    <c:forEach items="${person_list}" var="museum">
         <tr bgcolor="#ffe4c4">
-            <td>${person.getName()}</td>
-            <td>${person.getLastName()}</td>
-            <td>${person.getBornYear()}</td>
-            <td>${person.getPhoneNumber()}</td>
-            <td>${person.getSex().getSymbol()}</td>
+            <td>${museum.getName()}</td>
+            <td>${museum.getLastName()}</td>
+            <td>${museum.getBornYear()}</td>
+            <td>${museum.getPhoneNumber()}</td>
+            <td>${museum.getSex().getSymbol()}</td>
         </tr>
     </c:forEach>
 </table>
@@ -44,25 +44,25 @@ Table by sex:
         <th>Sex</th>
     </tr>
 
-    <c:forEach items="${person_list}" var="person">
-        <c:if test="${person.getSex().getSymbol() == 'F'}">
+    <c:forEach items="${person_list}" var="museum">
+        <c:if test="${museum.getSex().getSymbol() == 'F'}">
         <tr bgcolor="#ffe4c4">
-            <td>${person.getName()}</td>
-            <td>${person.getLastName()}</td>
-            <td>${person.getBornYear()}</td>
-            <td>${person.getPhoneNumber()}</td>
-            <td>${person.getSex().getSymbol()}</td>
+            <td>${museum.getName()}</td>
+            <td>${museum.getLastName()}</td>
+            <td>${museum.getBornYear()}</td>
+            <td>${museum.getPhoneNumber()}</td>
+            <td>${museum.getSex().getSymbol()}</td>
         </tr>
     </c:if>
     </c:forEach>
-    <c:forEach items="${person_list}" var="person">
-        <c:if test="${person.getSex().getSymbol() == 'M'}">
+    <c:forEach items="${person_list}" var="museum">
+        <c:if test="${museum.getSex().getSymbol() == 'M'}">
             <tr bgcolor="#ffe4c4">
-                <td>${person.getName()}</td>
-                <td>${person.getLastName()}</td>
-                <td>${person.getBornYear()}</td>
-                <td>${person.getPhoneNumber()}</td>
-                <td>${person.getSex().getSymbol()}</td>
+                <td>${museum.getName()}</td>
+                <td>${museum.getLastName()}</td>
+                <td>${museum.getBornYear()}</td>
+                <td>${museum.getPhoneNumber()}</td>
+                <td>${museum.getSex().getSymbol()}</td>
             </tr>
         </c:if>
     </c:forEach>
@@ -78,10 +78,10 @@ Table with age over 30 years:
         <th>Phone</th>
         <th>Sex</th>
     </tr>
-    <c:forEach items="${person_list}" var="person">
-        <c:if test="${((2018-person.getBornYear()) > 30)}">
+    <c:forEach items="${person_list}" var="museum">
+        <c:if test="${((2018-museum.getBornYear()) > 30)}">
             <c:choose>
-                <c:when test="${person.getLastName().startsWith('K')}">
+                <c:when test="${museum.getLastName().startsWith('K')}">
                     <tr bgcolor="#adff2f">
                 </c:when>
                 <c:otherwise>
@@ -89,11 +89,11 @@ Table with age over 30 years:
                 </c:otherwise>
             </c:choose>
 
-                <td>${person.getName()}</td>
-                <td>${person.getLastName()}</td>
-                <td>${person.getBornYear()}</td>
-                <td>${person.getPhoneNumber()}</td>
-                <td>${person.getSex().getSymbol()}</td>
+                <td>${museum.getName()}</td>
+                <td>${museum.getLastName()}</td>
+                <td>${museum.getBornYear()}</td>
+                <td>${museum.getPhoneNumber()}</td>
+                <td>${museum.getSex().getSymbol()}</td>
             </tr>
         </c:if>
     </c:forEach>

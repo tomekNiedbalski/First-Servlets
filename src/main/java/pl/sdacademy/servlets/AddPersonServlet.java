@@ -21,17 +21,22 @@ public class AddPersonServlet extends HttpServlet {
         String sex = request.getParameter("sex");
 
         try {
-            Class.forName("org.sqlite.JDBC");
+            Class.forName("org.sqlite.JDBC"); //inicjalizacja sterownika
             Connection connection = DriverManager.getConnection("jdbc:sqlite://d:peopleDB.db");
+
             String addQuery = "INSERT INTO people VALUES(?,?,?,?,?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(addQuery);
-            preparedStatement.setString(1,name);
-            preparedStatement.setString(2,lastName);
-            preparedStatement.setInt(3,bornYear);
-            preparedStatement.setInt(4,phoneNumber);
-            preparedStatement.setString(5,sex);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
+
+            PreparedStatement insertStatement = connection.prepareStatement(addQuery);
+
+            insertStatement.setString(1,name);
+            insertStatement.setString(2,lastName);
+            insertStatement.setInt(3,bornYear);
+            insertStatement.setInt(4,phoneNumber);
+            insertStatement.setString(5,sex);
+
+            insertStatement.executeUpdate();
+
+            insertStatement.close();
             connection.close();
 
         } catch (Exception e) {

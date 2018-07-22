@@ -1,9 +1,8 @@
 package pl.sdacademy.servlets;
 
 import pl.sdacademy.utils.GalleryDisplayer;
-import pl.sdacademy.utils.ImportLinks;
+import pl.sdacademy.utils.ImportFiles;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +20,7 @@ public class GalleryServlet2 extends HttpServlet {
         String showingChoice = request.getParameter("showingChoice");
         List<String> urls = (List<String>)session.getAttribute("urls");
         if(urls == null){
-            urls = new ImportLinks().importLinks();
+            urls = new ImportFiles().importLinks();
         }
 
         request.setAttribute("photosToPrint", new GalleryDisplayer().prepareTableData(showingChoice, urls));
@@ -34,7 +33,7 @@ public class GalleryServlet2 extends HttpServlet {
         HttpSession session = request.getSession();
         List<String> urls = (List<String>)session.getAttribute("urls");
         if(urls == null){
-            urls = new ImportLinks().importLinks();
+            urls = new ImportFiles().importLinks();
         }
         request.setAttribute("photosToPrint", new GalleryDisplayer().prepareTableData("3", urls));
         request.getRequestDispatcher("gallery2.jsp")
