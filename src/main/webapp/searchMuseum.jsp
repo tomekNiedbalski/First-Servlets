@@ -11,15 +11,23 @@
 
 <jsp:include page="menu.jsp"/>
 
-<form method="post" action="/searchMuseum" >
+<form method="post" action="/searchMuseum">
     <div>
-        <br><select name="searchParameter">
-        <option value="name">Name</option>
-        <option value="city">City</option>
-        <option value="street">Street</option>
-        <option value="foundator">Fundator</option>
-    </select>
+        <br>
+        <select name="searchParameter">
+            <option value="name">Name</option>
+            <option value="city">City</option>
+            <option value="street">Street</option>
+            <option value="foundator">Fundator</option>
+        </select>
         <input type="text" name="searchString"><br>
+        <select name="searchParameter2">
+            <option value="city">City</option>
+            <option value="name">Name</option>
+            <option value="street">Street</option>
+            <option value="foundator">Fundator</option>
+        </select>
+        <input type="text" name="searchString2"><br>
         <input type="submit" value="Search">
     </div>
 </form>
@@ -39,14 +47,13 @@ Results: ${requestScope.searchResult.size()}
             <td>${museum.getName()}</td>
             <td>${museum.getPostalCode()}</td>
             <td>${museum.getCity()}</td>
-            <td>${museum.getStreetPrefix()} ${museum.getStreet()} ${museum.getStreetNumber()}/${museum.getHomeNumber()}</td>
+            <td>${museum.getStreetPrefix()} ${museum.getStreet()} ${museum.getStreetNumber()} ${museum.getHomeNumber()}</td>
             <td>${museum.getMuseumFoundator()}</td>
             <td>${museum.getDateOfEntry()}</td>
             <td>${museum.getStatus()}</td>
         </tr>
     </c:forEach>
 </table>
-
 
 
 </body>

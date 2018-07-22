@@ -3,6 +3,8 @@ package pl.sdacademy.utils;
 import pl.sdacademy.enums.Sex;
 import pl.sdacademy.model.Museum;
 import pl.sdacademy.model.Person;
+import pl.sdacademy.model.User;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +41,64 @@ public class DatabaseFunction {
             e.printStackTrace();
         }
         return personList;
+    }
+
+    public boolean checkForLogin(String login){
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            connection = DriverManager.getConnection("jdbc:sqlite://d:users.db");
+            String query = "SELECT * FROM users WHERE login = '"+login+"'";
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()){
+                return false;
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            closeAccessToDatabase(connection, preparedStatement, resultSet);
+        }
+        return true;
+    }
+
+    private void closeAccessToDatabase(Connection connection, PreparedStatement preparedStatement, ResultSet resultSet) {
+        try {
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public User getUser(String login){
+        User user = null;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            connection = DriverManager.getConnection("jdbc:sqlite://d:users.db");
+            String query = "SELECT * FROM users WHERE login = '"+login+"'";
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            user = new User(resultSet.getString(1),resultSet.getString(2));
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            closeAccessToDatabase(connection, preparedStatement, resultSet);
+        }
+        return user;
     }
 
     public void addMuseumsFromCsv(List<Museum> museums){
