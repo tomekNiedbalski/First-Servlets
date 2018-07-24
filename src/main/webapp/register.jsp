@@ -15,8 +15,8 @@
 ${requestScope.invalidUser}<br>
 Register new user:<br>
 <form method="post" action="/register">
-    Login: <input type="text" name="login">
-    Password: <input type="password" name="password"><br>
+    Login: <input type="text" name="login" required>
+    Password: <input type="password" name="password" required><br>
     <input type="submit" value="Register">
 </form>
 
