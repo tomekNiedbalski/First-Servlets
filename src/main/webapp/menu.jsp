@@ -23,3 +23,4 @@ Logged in: ${sessionScope.login}
     <a href="register.jsp">Register</a>
     <a href="contact">Contact</a>
 </div>
+

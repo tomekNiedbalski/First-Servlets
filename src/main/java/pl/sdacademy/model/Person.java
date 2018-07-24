@@ -1,3 +1,4 @@
+
 package pl.sdacademy.model;
 
 import pl.sdacademy.enums.Sex;
@@ -75,3 +76,4 @@ public class Person {
         return list;
     }
 }
+

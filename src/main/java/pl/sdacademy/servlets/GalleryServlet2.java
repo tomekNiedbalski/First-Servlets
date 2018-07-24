@@ -39,5 +39,4 @@ public class GalleryServlet2 extends HttpServlet {
         request.getRequestDispatcher("gallery2.jsp")
                 .forward(request, response);
     }
-
 }
